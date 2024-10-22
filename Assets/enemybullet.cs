@@ -9,8 +9,8 @@ public class enemybullet : MonoBehaviour
     {
         if (collision.collider.tag == "Player")
         {
-            print("hit");
-            Destroy(collision.collider.gameObject);
+            
+            
             Destroy(gameObject);
         }
 

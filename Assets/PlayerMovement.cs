@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(dead);
         
         if (leftTime1 == 0)
         {
@@ -206,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
-    IEnumerator Respawn()
+    public IEnumerator Respawn()
     {
         lives--;
         dead = true;
