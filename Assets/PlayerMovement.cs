@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (leftTime1 == 0)
         {
             StartCoroutine(Respawn());
@@ -80,6 +81,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
+        if (Input.GetKey(KeyCode.LeftShift) )
+        {
+           
+            runspeed = 8;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            runspeed = 4;
         }
         if (!IsGrounded())
         {
