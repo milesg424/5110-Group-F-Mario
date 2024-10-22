@@ -128,6 +128,11 @@ public class PlayerMovement : MonoBehaviour
             print(col);
             col.transform.parent.GetComponent<EnemyMovement>().Kill();
         }
+        if (col.tag == "Obstacle")
+        {
+          
+            col.transform.GetComponent<Box>().Break1();
+        }
         if (col.tag == "Enemy")
         {
             if (GrowUp)
@@ -139,7 +144,10 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 StartCoroutine(Respawn());
-                lives --;
+                //col.GetComponent<EnemyMovement>().collision();
+                    lives -=1;
+                
+               
             }
             score += 300;
             
@@ -149,6 +157,16 @@ public class PlayerMovement : MonoBehaviour
             coins++;
             score += 100;
             Destroy(col.gameObject);
+        }
+        if (col.tag == "Death")
+        {
+            
+           
+                StartCoroutine(Respawn());
+                lives--;
+            
+            score -= 300;
+
         }
     }
     private void PlayerAttack()

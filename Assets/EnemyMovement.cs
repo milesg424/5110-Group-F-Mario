@@ -82,9 +82,19 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         StartCoroutine(Destory());
     }
+    IEnumerator SetCollision()
+    {
+        transform.GetChild(2).GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        transform.GetChild(2).GetComponent<Collider2D>().enabled = true;
+    }
+    public void collision()
+    {
+        StartCoroutine(SetCollision());
+    }
     IEnumerator Destory()
     {
-       
+        transform.GetChild(0).gameObject.SetActive(false);
             yield return new WaitForSeconds(2f);
             Destroy(gameObject);
         }
@@ -94,6 +104,8 @@ public class EnemyMovement : MonoBehaviour
         {
             speed = -speed;
         }
+       
+
 
 
     }

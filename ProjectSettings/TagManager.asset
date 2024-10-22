@@ -13,6 +13,7 @@ TagManager:
   - Level2
   - Level3
   - Coin
+  - Death
   layers:
   - Default
   - TransparentFX

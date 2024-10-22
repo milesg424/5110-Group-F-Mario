@@ -64,11 +64,7 @@ public class Box : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "Player"){
-            if(type == 1)
-
-            {
-                Break1();
-            }
+          
             if(type == 2)
             {
                 show();
