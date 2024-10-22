@@ -1342,7 +1342,7 @@ GameObject:
   - component: {fileID: 167668785}
   - component: {fileID: 167668787}
   - component: {fileID: 167668786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (9)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1373,7 +1373,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 167668784}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2740,9 +2740,9 @@ GameObject:
   - component: {fileID: 254183236}
   - component: {fileID: 254183238}
   - component: {fileID: 254183239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (1)
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2823,7 +2823,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 254183235}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5600,9 +5600,9 @@ GameObject:
   - component: {fileID: 488905851}
   - component: {fileID: 488905853}
   - component: {fileID: 488905854}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5683,7 +5683,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 488905850}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6913,7 +6913,7 @@ GameObject:
   - component: {fileID: 567291584}
   - component: {fileID: 567291586}
   - component: {fileID: 567291585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (5)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6944,7 +6944,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 567291583}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7132,7 +7132,7 @@ GameObject:
   - component: {fileID: 580195090}
   - component: {fileID: 580195092}
   - component: {fileID: 580195093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7215,7 +7215,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 580195089}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7686,7 +7686,7 @@ GameObject:
   - component: {fileID: 614622733}
   - component: {fileID: 614622735}
   - component: {fileID: 614622736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7769,7 +7769,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 614622732}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10895,9 +10895,9 @@ GameObject:
   - component: {fileID: 829727658}
   - component: {fileID: 829727660}
   - component: {fileID: 829727659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (4)
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10926,7 +10926,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 829727657}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -16819,7 +16819,7 @@ GameObject:
   - component: {fileID: 1294266639}
   - component: {fileID: 1294266641}
   - component: {fileID: 1294266640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (6)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16850,7 +16850,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1294266638}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -18949,7 +18949,7 @@ GameObject:
   - component: {fileID: 1483480013}
   - component: {fileID: 1483480015}
   - component: {fileID: 1483480014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (10)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18980,7 +18980,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1483480012}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -24740,7 +24740,7 @@ GameObject:
   - component: {fileID: 1839304660}
   - component: {fileID: 1839304662}
   - component: {fileID: 1839304661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (7)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -24771,7 +24771,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1839304659}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28007,7 +28007,7 @@ GameObject:
   - component: {fileID: 2075390214}
   - component: {fileID: 2075390216}
   - component: {fileID: 2075390215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stone (8)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -28038,7 +28038,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2075390213}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7ea6efd019527924997e4eaedbc9f3c1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

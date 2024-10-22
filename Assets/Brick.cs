@@ -34,6 +34,7 @@ public class Box : MonoBehaviour
         transform.GetChild(1).gameObject.SetActive(true);
         transform.GetChild(2).gameObject.SetActive(true);
         transform.GetChild(3).gameObject.SetActive(true);
+        GetComponent<Collider2D>().enabled = false;
     }
 
     void CreatCube(Vector3 position)
