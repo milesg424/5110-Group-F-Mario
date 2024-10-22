@@ -10,7 +10,7 @@ public class Box : MonoBehaviour
     public float radius = 2f;
     public Vector3 cubeScale;
     public int type;
-    
+    public GameObject brick;
     public void Break()
     {
         GetComponent<Renderer>().enabled = false;
@@ -27,20 +27,24 @@ public class Box : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
+    public void Break1()
+    {
+        GetComponent<Renderer>().enabled = false;
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(true);
+        transform.GetChild(3).gameObject.SetActive(true);
+    }
 
     void CreatCube(Vector3 position)
     {
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        Renderer rd = cube.GetComponent<Renderer>();
-       
-       
-        rd.material = GetComponent<Renderer>().material;
+        GameObject cube = Instantiate(brick, transform.position, Quaternion.identity, null);
+
+
         cube.transform.localScale = transform.localScale / cubesPerAxis;
         Vector3 firstCube = transform.position - cubeScale / 2 + cube.transform.localScale / 2;
-        cube.transform.position = firstCube + Vector3.Scale(position, cube.transform.localScale);
-        Rigidbody rb = cube.AddComponent<Rigidbody>();
-        rb.AddExplosionForce(force, transform.position, radius);
+        cube.transform.position = Vector3.Scale(position, cube.transform.localScale);
+        cube.GetComponent<Rigidbody2D>().AddForce(new Vector2(100,100));
 
     }
     void show()
@@ -48,11 +52,13 @@ public class Box : MonoBehaviour
        transform.GetChild(0).gameObject.SetActive(true);
        transform.GetChild(1).gameObject.SetActive(true);
         GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().GrowUp = true;
     }
     void shoot()
     {
         show();
         GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().canShoot = true;
+        GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().GrowUp = true;
     }
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -60,7 +66,7 @@ public class Box : MonoBehaviour
             if(type == 1)
 
             {
-                Break();
+                Break1();
             }
             if(type == 2)
             {

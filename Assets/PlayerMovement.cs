@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private int lives = 3;
     private float leftTime = 60;
     private float leftTime1 = 60 ;
+    public bool GrowUp;
     public bool canShoot;
     private int score = 0;
     private int coins = 0;
@@ -119,9 +120,19 @@ public class PlayerMovement : MonoBehaviour
         }
         if (col.tag == "Enemy")
         {
-
-
-            StartCoroutine(Respawn());
+            if (GrowUp)
+            {
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(0).gameObject.SetActive(true);
+                GrowUp = false;
+            }
+            else
+            {
+                StartCoroutine(Respawn());
+                lives --;
+            }
+            score += 300;
+            
         }
         if (col.tag == "Coin")
         {
