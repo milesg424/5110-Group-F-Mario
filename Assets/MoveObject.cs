@@ -18,4 +18,19 @@ public class MoveObject : MonoBehaviour
        
         transform.position += speed;
     }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Wall")
+        {
+            speed = new Vector3(-0.01f,0f,0f);
+
+        }
+        if (col.gameObject.tag == "Player")
+        {
+            col.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            gameObject.SetActive(false);
+        }
+
+    }
 }

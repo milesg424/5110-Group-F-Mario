@@ -10,7 +10,7 @@ public class Box : MonoBehaviour
     public float radius = 2f;
     public Vector3 cubeScale;
     public int type;
-
+    
     public void Break()
     {
         GetComponent<Renderer>().enabled = false;
@@ -46,7 +46,13 @@ public class Box : MonoBehaviour
     void show()
     {
        transform.GetChild(0).gameObject.SetActive(true);
-
+       transform.GetChild(1).gameObject.SetActive(true);
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+    void shoot()
+    {
+        show();
+        GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().canShoot = true;
     }
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -59,6 +65,10 @@ public class Box : MonoBehaviour
             if(type == 2)
             {
                 show();
+            }
+            if(type == 3)
+            {
+                shoot();
             }
         }
     }

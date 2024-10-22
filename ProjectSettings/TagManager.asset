@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Wall
+  - Kill
+  - Spawn
+  - Obstacle
+  - Level1
+  - Level2
+  - Level3
+  - Coin
   layers:
   - Default
   - TransparentFX
