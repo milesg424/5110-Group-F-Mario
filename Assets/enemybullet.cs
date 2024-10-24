@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class enemybullet : MonoBehaviour
 {
- 
-    private void OnCollisionEnter2D(Collision2D collision)
+    int TouchCount = 0;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.GetComponent<Collider2D>().tag == "Wall")
         {
-            
-            
+            TouchCount++;
+            if (TouchCount == 3)
+                Destroy(gameObject);
+        }
+        if (collision.GetComponent<Collider2D>().tag == "Obstacle")
+        {
+
             Destroy(gameObject);
         }
 
 
-        if (collision.collider.tag == "Wall" || collision.collider.tag =="Enemy" || collision.collider.tag == "Obstacle")
-        {
-         
-                Destroy(gameObject);
-        }
-       
+    }
+    IEnumerator SetCollision()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        GetComponent<Collider2D>().enabled = true;
+    }
+    public void collision()
+    {
+        StartCoroutine(SetCollision());
     }
 }

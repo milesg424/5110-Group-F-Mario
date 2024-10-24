@@ -41,7 +41,16 @@ public class EnemyMovement : MonoBehaviour
                 Instantiate(bullet, spawnbullet.transform.position, Quaternion.identity, null);
             }
         }
-       if( reachLoc1)
+        if (type == 3)
+        {
+            time1 += Time.deltaTime;
+            if (time1 >= bulletcooldown)
+            {
+                time1 = 0;
+                Attack();
+            }
+        }
+        if ( reachLoc1)
         {
             time += speed;
         }
@@ -106,6 +115,41 @@ public class EnemyMovement : MonoBehaviour
         }
        
 
+
+
+    }
+    private void Attack()
+    {
+        CreateBullet();
+    }
+    void CreateBullet()
+    {
+        Vector3 BulletPosition = new Vector3();
+        Vector2 BulletDirection = new Vector2();
+        float BulletSpeed = 5f;
+
+        BulletPosition = spawnbullet.transform.position;
+
+
+
+
+
+
+
+        var NewBullet = Instantiate(bullet, BulletPosition, Quaternion.identity, null);
+        var NewBulletRigidbody = NewBullet.GetComponent<Rigidbody2D>();
+       
+        if (transform.GetChild(0).GetComponent<SpriteRenderer>().flipX)
+        {
+            BulletDirection = new Vector2(-1, -0.1f);
+        }
+        else
+        {
+            BulletDirection = new Vector2(1, -0.1f);
+        }
+   
+
+        NewBulletRigidbody.velocity = BulletDirection * BulletSpeed;
 
 
     }

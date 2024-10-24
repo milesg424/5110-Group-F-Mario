@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
@@ -20,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text coinText;
     private int lives = 3;
     private float leftTime = 60;
-    private float leftTime1 = 60 ;
+    private float leftTime1 = 60;
     public bool GrowUp;
     public bool canShoot;
     private int score = 0;
@@ -38,14 +40,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         print(dead);
-        
+
         if (leftTime1 == 0)
         {
             StartCoroutine(Respawn());
-            leftTime = 5;
-            
+            leftTime = 60;
+
         }
-       leftTime -= Time.deltaTime;
+        leftTime -= Time.deltaTime;
         leftTime1 = (int)leftTime;
         timeText.text = leftTime1.ToString();
         healthText.text = lives.ToString();
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             lives = 0;
         }
-        if (Input.GetButtonDown("Fire1")&&canShoot){
+        if (Input.GetButtonDown("Fire1") && canShoot) {
 
             PlayerAttack();
         }
@@ -64,17 +66,17 @@ public class PlayerMovement : MonoBehaviour
             transform.position = GameObject.FindGameObjectsWithTag("Spawn")[0].transform.position;
         }
         horizontal = Input.GetAxisRaw("Horizontal");
-        if(horizontal > 0)
+        if (horizontal > 0)
         {
             transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
-            transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+            transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = true;
         }
-        else
+        else if(horizontal < 0) 
         {
             transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
             transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
         }
-        
+
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -83,9 +85,9 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-        if (Input.GetKey(KeyCode.LeftShift) )
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-           
+
             runspeed = 8;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -131,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (col.tag == "Obstacle")
         {
-          
+
             col.transform.GetComponent<Box>().Break1();
         }
         if (col.tag == "Enemy")
@@ -145,15 +147,33 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 StartCoroutine(Respawn());
-                //col.GetComponent<EnemyMovement>().collision();
-                    lives -=1;
+               
                 
                
             }
             score += 300;
             
         }
-        if (col.tag == "Coin")
+        if (col.tag == "EnemyBullet") 
+        {
+            if (GrowUp)
+            {
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(0).gameObject.SetActive(true);
+                Destroy(col.gameObject);
+                GrowUp = false;
+            }
+            else
+            {
+                StartCoroutine(Respawn());
+                Destroy(col.gameObject);
+
+
+
+            }
+
+        }
+            if (col.tag == "Coin")
         {
             coins++;
             score += 100;
@@ -192,7 +212,15 @@ public class PlayerMovement : MonoBehaviour
         var NewBulletRigidbody = NewBullet.GetComponent<Rigidbody2D>();
         if(horizontal == 0)
         {
-            BulletDirection = new Vector2(1, 0.5f);
+            if (transform.GetChild(1).GetComponent<SpriteRenderer>().flipX)
+            {
+                BulletDirection = new Vector2(1, 0.5f);
+            }
+            else
+            {
+                BulletDirection = new Vector2(-1, 0.5f);
+            }
+            
         }
         else if(horizontal > 0)
         {
@@ -211,8 +239,10 @@ public class PlayerMovement : MonoBehaviour
     {
         lives--;
         dead = true;
+        DontDestroyOnLoad(this.gameObject);
         yield return new WaitForSeconds(0.5f);
         dead = false;
+
     }
 
 
