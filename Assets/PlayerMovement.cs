@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text coinText;
     private int lives = 3;
-    private float leftTime = 60;
-    private float leftTime1 = 60;
+    private float leftTime = 90;
+    private float leftTime1 = 90;
     public bool GrowUp;
     public bool canShoot;
     private int score = 0;
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (leftTime1 == 0)
         {
             StartCoroutine(Respawn());
-            leftTime = 60;
+            leftTime = 90;
 
         }
         leftTime -= Time.deltaTime;
