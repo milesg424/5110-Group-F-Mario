@@ -131,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
             print(col);
             col.transform.parent.GetComponent<EnemyMovement>().Kill();
         }
+       
         if (col.tag == "Obstacle")
         {
 
