@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text coinText;
     private int lives = 3;
-    private float leftTime = 90;
-    private float leftTime1 = 90;
+    private float leftTime = 45;
+    private float leftTime1 = 45;
     public bool GrowUp;
     public bool canShoot;
     private int score = 0;
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (leftTime1 == 0)
         {
             StartCoroutine(Respawn());
-            leftTime = 90;
+            leftTime = 45;
 
         }
         leftTime -= Time.deltaTime;
@@ -131,7 +131,10 @@ public class PlayerMovement : MonoBehaviour
             print(col);
             col.transform.parent.GetComponent<EnemyMovement>().Kill();
         }
-       
+        if (col.tag == "Door")
+        {
+            leftTime = 45;
+        }
         if (col.tag == "Obstacle")
         {
 
