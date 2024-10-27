@@ -185,9 +185,14 @@ public class PlayerMovement : MonoBehaviour
             
            
                 StartCoroutine(Respawn());
-                lives--;
-            
+             
+           
+
             score -= 300;
+            if (score <= 0)
+            {
+                score = 0;
+            }
 
         }
     }
