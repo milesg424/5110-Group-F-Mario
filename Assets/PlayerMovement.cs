@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
                 
                
             }
-            score += 300;
+         
             
         }
         if (col.tag == "EnemyBullet") 
