@@ -16,6 +16,8 @@ TagManager:
   - Death
   - EnemyBullet
   - Door
+  - End
+  - Start
   layers:
   - Default
   - TransparentFX
