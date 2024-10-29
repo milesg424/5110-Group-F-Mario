@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canShoot;
     private int score = 0;
     private int coins = 0;
+    bool start;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -47,8 +48,12 @@ public class PlayerMovement : MonoBehaviour
             leftTime = 45;
 
         }
-        leftTime -= Time.deltaTime;
-        leftTime1 = (int)leftTime;
+        if (start)
+        {
+            leftTime -= Time.deltaTime;
+            leftTime1 = (int)leftTime;
+        }
+      
         timeText.text = leftTime1.ToString();
         healthText.text = lives.ToString();
         scoreText.text = score.ToString();
@@ -93,6 +98,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             runspeed = 4;
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+
+            start = true;
         }
         if (!IsGrounded())
         {
